@@ -21,15 +21,15 @@ public abstract class ElementoCatalogo {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String isbn;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String titolo;
 
-    @Column(nullable = false)
+    @Column
     private int annoPubblicazione;
 
-    @Column(nullable = false)
+    @Column
     private int numeroPagine;
 }

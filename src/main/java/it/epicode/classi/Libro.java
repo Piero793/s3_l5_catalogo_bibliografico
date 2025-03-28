@@ -18,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @Table(name = "libri")
 public class Libro extends ElementoCatalogo {
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String autore;
 
     @Column(length = 50)

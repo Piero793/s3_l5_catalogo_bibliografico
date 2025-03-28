@@ -24,17 +24,17 @@ public class Prestito {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "utente_id", nullable = false)
+    @JoinColumn(name = "utente_id")
     private Utente utente;
 
     @ManyToOne
-    @JoinColumn(name = "elemento_prestato_id", nullable = false)
+    @JoinColumn(name = "elemento_prestato_id")
     private ElementoCatalogo elementoPrestato;
 
-    @Column(nullable = false)
+    @Column
     private LocalDate dataInizioPrestito;
 
-    @Column(nullable = false)
+    @Column
     private LocalDate dataRestituzionePrevista;
 
     @Column
