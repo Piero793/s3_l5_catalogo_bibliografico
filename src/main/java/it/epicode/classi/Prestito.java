@@ -12,6 +12,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+@NamedQuery(name = "Prestito.findByNumeroTessera",query = "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera")
+@NamedQuery(name = "Prestito.findPrestitiAttivi",query = "SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva IS NULL")
+@NamedQuery(name = "Prestito.findPrestitiScaduti",query = "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
 @Entity
 @Table(name = "prestiti")
 public class Prestito {
