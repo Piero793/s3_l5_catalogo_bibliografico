@@ -11,7 +11,7 @@ public class ArchivioDAO {
 
     private EntityManager em;
 
-    // Ricerca elemento del catalogo per ISBN
+    // Ricerca elemento del catalogo per ISBN facendo un createQuery
     public ElementoCatalogo ricercaPerISBN(String isbn) {
         List<ElementoCatalogo> risultati = em.createQuery(
                         "SELECT e FROM ElementoCatalogo e WHERE e.isbn = :isbn", ElementoCatalogo.class)
