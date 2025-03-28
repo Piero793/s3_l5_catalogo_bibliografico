@@ -30,8 +30,4 @@ public class UtenteDAO {
         }
     }
 
-    // Recupera tutti gli utenti
-    public List<Utente> recuperaTuttiGliUtenti() {
-        return em.createQuery("SELECT u FROM Utente u", Utente.class).getResultList();
-    }
 }

@@ -10,8 +10,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@NamedQuery(name = "ElementoCatalogo.findByAnnoPubblicazione",query = "SELECT e FROM ElementoCatalogo e WHERE e.annoPubblicazione = :anno")
-@NamedQuery(name = "ElementoCatalogo.findByTitoloParziale",query = "SELECT e FROM ElementoCatalogo e WHERE e.titolo LIKE :titolo")
+@NamedQuery(name = "ElementoCatalogo.trovaPerAnnoPubblicazione", query = "SELECT e FROM ElementoCatalogo e WHERE e.annoPubblicazione = :anno")
+@NamedQuery(name = "ElementoCatalogo.trovaPerAutore", query = "SELECT l FROM Libro l WHERE l.autore = :autore")
+@NamedQuery(name = "ElementoCatalogo.trovaPerTitoloParziale", query = "SELECT e FROM ElementoCatalogo e WHERE e.titolo LIKE :titolo")
 @Entity
 @Table(name = "catalogo")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

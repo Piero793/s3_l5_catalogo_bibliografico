@@ -12,35 +12,32 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@NamedQuery(name = "Prestito.findByNumeroTessera",query = "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera")
-@NamedQuery(name = "Prestito.findPrestitiAttivi",query = "SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva IS NULL")
-@NamedQuery(name = "Prestito.findPrestitiScaduti",query = "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
+@NamedQuery(name = "Prestito.trovaElementiPrestatiDaUtente", query = "SELECT p.elementoPrestato FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND p.dataRestituzioneEffettiva IS NULL")
+@NamedQuery(name = "Prestito.trovaPrestitiScadutiENonRestituiti", query = "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
 @Entity
 @Table(name = "prestiti")
 public class Prestito {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "utente_id")
     private Utente utente;
 
-    @ManyToOne
-    @JoinColumn(name = "elemento_prestato_id")
+    @ManyToOne(optional = false)
     private ElementoCatalogo elementoPrestato;
 
-    @Column
+    @Column(nullable = false)
     private LocalDate dataInizioPrestito;
 
-    @Column
+    @Column(nullable = false)
     private LocalDate dataRestituzionePrevista;
 
     @Column
     private LocalDate dataRestituzioneEffettiva;
 
-    // Metodo per calcolare la data di restituzione prevista
+
     public void calcolaDataRestituzionePrevista() {
         this.dataRestituzionePrevista = this.dataInizioPrestito.plusDays(30);
     }

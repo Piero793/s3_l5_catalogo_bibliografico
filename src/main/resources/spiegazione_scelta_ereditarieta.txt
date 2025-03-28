@@ -1,12 +1,10 @@
-Motivazioni della scelta del tipo di relazioni tra Utente e Prestito:
+MANY TO ONE NELLA RELAZIONE CON UTENTE
 
-1. Relazione @OneToMany tra Utente e Prestito:
-   - La scelta di utilizzare una relazione "uno a molti" tra Utente e Prestito è motivata dal fatto che un singolo utente può effettuare più prestiti nel tempo.
+Ogni prestito è  associato a un singolo utente, ma ogni utente può avere più prestiti.
 
-2. Relazione @ManyToOne tra Prestito e Utente:
-   - Per la classe `Prestito`, è stato utilizzato `@ManyToOne` per indicare che ogni prestito è associato a un singolo utente specifico.
+MANY TO ONE IN ELEMENTOCATALOGO
+
+Ogni prestito è associato a un singolo elemento del catalogo (un libro o una rivista), ma un elemento può essere prestato più volte in momenti diversi.
+Anche questa è una relazione "molti a uno".
 
 
-Conclusione:
-La scelta della combinazione di relazioni "uno a molti" da Utente a Prestito e "molti a uno" da Prestito a Utente permette una rappresentazione
-ben organizzata all'interno del database.

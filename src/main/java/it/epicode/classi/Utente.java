@@ -22,15 +22,15 @@ public class Utente {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int numeroTessera;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String nome;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String cognome;
 
-    @Column
+    @Column(nullable = false)
     private LocalDate dataDiNascita;
 
-    @OneToMany(mappedBy = "utente",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prestito> prestiti = new ArrayList<>();
 }
