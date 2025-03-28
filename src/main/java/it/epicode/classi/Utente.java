@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -31,5 +32,5 @@ public class Utente {
     private LocalDate dataDiNascita;
 
     @OneToMany(mappedBy = "utente")
-    private List<Prestito> prestiti;
+    private List<Prestito> prestiti = new ArrayList<>();
 }

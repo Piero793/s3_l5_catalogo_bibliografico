@@ -18,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 public abstract class ElementoCatalogo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(length = 50, nullable = false)
