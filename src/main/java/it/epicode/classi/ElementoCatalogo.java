@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Table(name = "catalogo")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-   abstract class ElementoCatalogo {
+public abstract class ElementoCatalogo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
